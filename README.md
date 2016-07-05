@@ -27,3 +27,11 @@ Compilation from source needs the header files (*.h), therefore you must install
 Installing dependancy file of in nlkt on python trminal(open python terminal)
 	>>import nlkt
 	>>nltk.download('punkt')
+
+
+
+Runing 
+
+sample
+ 
+$python img_search.py  'https://upload.wikimedia.org/wikipedia/commons/thumb/f/f4/Raymond_Kurzweil_Fantastic_Voyage.jpg/220px-Raymond_Kurzweil_Fantastic_Voyage.jpg'
