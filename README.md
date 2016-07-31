@@ -22,16 +22,17 @@ Install it.
 libxml2 in Ubuntu has version 2.6.31 so that's no problem.
 	$apt-cache show libxml2-dev
 
-Compilation from source needs the header files (*.h), therefore you must install the xxx-dev package. That's why I limited the listing with | grep dev. Dev package will in turn pull out all necessary runtime libraries. 
-
 Installing dependancy file of in nlkt on python trminal(open python terminal)
 	>>import nlkt
 	>>nltk.download('punkt')
 
-
-
+Installing selenium
+	pip install selenium
+you can find how to setup the stanford nltk in the following link
+	https://pythonprogramming.net/named-entity-recognition-stanford-ner-tagger/
+	
 Runing 
 
-sample
- 
-$python img_search.py  'https://upload.wikimedia.org/wikipedia/commons/thumb/f/f4/Raymond_Kurzweil_Fantastic_Voyage.jpg/220px-Raymond_Kurzweil_Fantastic_Voyage.jpg'
+first set the image path for class constructor 
+
+$python revers_img_search_scraping.py 
