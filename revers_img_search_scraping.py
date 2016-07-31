@@ -41,7 +41,8 @@ class MyHTMLParser(HTMLParser):
 
 class revers_img_search:
 
-    def __init__(self):
+    def __init__(self, image):
+        self.img_filepath = image
         self.xpath = {}
         self.xpath['bestguess'] = "/html/body[@id='gsr']/div[@id='main']/div[@id='cnt']/div[@class='mw']/div[@id='rcnt']/div[@class='col'][1]/div[@id='center_col']/div[@id='res']/div[@id='topstuff']/div[@class='card-section']/div[@class='_hUb']/a[@class='_gUb']"
         self.xpath['wikipage'] = "/html/body[@id='gsr']/div[@id='main']/div[@id='cnt']/div[@class='mw']/div[@id='rcnt']/div[@class='col'][2]/div[@id='rhs']/div[@id='rhs_block']/div[@class='g rhsvw kno-kp mnr-c g-blk']/div[@class='kp-blk _Jw _Rqb _RJe']/div[@class='xpdopen']/div[@class='_OKe']/div[2]/div[@class='kp-header']/div[@class='_axe _T9h']/div[@class='_cFb']/div[@class='_tN _IWg _HWg mod']/div[@class='_fdf']/div[2]/div[@class='kno-ecr-pt kno-fb-ctx']"
@@ -82,8 +83,8 @@ class revers_img_search:
         
         return psource
 
-    def image_scraper(self, filePath):
-        gis_raw_result = self.search_image_file(filePath)
+    def image_scraper(self):
+        gis_raw_result = self.search_image_file(self.img_filepath)
         string_for_output = gis_raw_result.encode('utf8', 'replace')
         parse_options = libxml2.HTML_PARSE_RECOVER + libxml2.HTML_PARSE_NOERROR + libxml2.HTML_PARSE_NOWARNING
         doc = libxml2.htmlReadDoc(string_for_output, '', None, parse_options)
@@ -94,8 +95,8 @@ class revers_img_search:
         return scrapeResults 
 
 if __name__ == '__main__':
-    revers_img_search_obj = revers_img_search()
-    return_txt = revers_img_search_obj.image_scraper('C:\Users\ADMIN\Pictures\Ben.jpg')
+    revers_img_search_obj = revers_img_search('C:\Users\ADMIN\Pictures\Ben.jpg')
+    return_txt = revers_img_search_obj.image_scraper()
     
     sent_result = stanford.Sanitize_Result()
     person_name = sent_result.sanitize_result(return_txt)
