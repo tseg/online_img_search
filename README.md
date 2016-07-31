@@ -27,8 +27,11 @@ Installing dependancy file of in nlkt on python trminal(open python terminal)
 	>>nltk.download('punkt')
 
 Installing selenium
-	pip install selenium
+	
+	$pip install selenium
+	
 you can find how to setup the stanford nltk in the following link
+	
 	https://pythonprogramming.net/named-entity-recognition-stanford-ner-tagger/
 	
 Runing 
